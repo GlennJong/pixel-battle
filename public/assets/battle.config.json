@@ -2325,7 +2325,10 @@
       { "prefix": "idle", "qty": 1, "freq": 1, "repeat": 0 },
       { "prefix": "face_normal", "qty": 1, "freq": 1, "repeat": 0 },
       { "prefix": "face_sad", "qty": 1, "freq": 1, "repeat": 0 },
-      { "prefix": "face_angry", "qty": 1, "freq": 1, "repeat": 0 }
+      { "prefix": "face_angry", "qty": 1, "freq": 1, "repeat": 0 },
+      { "prefix": "currycat_face_normal", "qty": 1, "freq": 1, "repeat": 0 },
+      { "prefix": "currycat_face_sad", "qty": 1, "freq": 1, "repeat": 0 },
+      { "prefix": "currycat_face_angry", "qty": 1, "freq": 1, "repeat": 0 }
     ],
     "base": {
       "max_hp": 100,

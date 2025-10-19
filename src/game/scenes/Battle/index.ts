@@ -9,16 +9,6 @@ import { KeyboardHandler } from '@/game/handlers/KeyboardHander';
 import { EventBus } from '@/game/EventBus';
 import { introduction } from './introduction';
 
-
-type TAnimation = {
-  prefix: string;
-  qty: number;
-  freq: number;
-  repeat: number;
-  duration: number;
-  repeat_delay: number;
-};
-
 const aboutDialogue = [{
   portrait: 'battle_afk_self_face_normal',
   text: '這是咖哩貓做的貞貞俱樂部二創小遊戲。\n滿足小小的想做遊戲的願望！\n希望你有喜歡！',
@@ -98,30 +88,6 @@ export default class Battle extends Scene {
   }
 
   create() {
-    const battleConfig = this.cache.json.get('config').battle;
-    const {animations} = battleConfig['battle_currycat_opponent'];
-    animations.forEach((_ani: TAnimation) => {
-      const animationName = `battle_currycat_opponent_${_ani.prefix}`;
-      if (this.anims.exists(animationName)) return;
-
-      const data: Phaser.Types.Animations.Animation = {
-        key: animationName,
-        frames: this.anims.generateFrameNames('battle_currycat_opponent', {
-          prefix: `${_ani.prefix}_`,
-          start: 1,
-          end: _ani.qty,
-        }),
-        repeat: _ani.repeat,
-      };
-
-      if (typeof _ani.freq !== "undefined") data.frameRate = _ani.freq;
-      if (typeof _ani.duration !== "undefined") data.duration = _ani.duration;
-      if (typeof _ani.repeat_delay !== "undefined")
-        data.repeatDelay = _ani.repeat_delay;
-
-      this.anims.create(data);
-    });
-    
     
     // background
     this.background = this.add.rectangle(0, 0, originalWidth, originalHeight, 0xeeeeee)
