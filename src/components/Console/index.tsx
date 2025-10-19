@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './style2.css';
-// import { EventBus } from '../EventBus';
 
 type ConsoleProps = {
   onClick: (key: string) => void

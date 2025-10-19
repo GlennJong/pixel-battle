@@ -21,3 +21,38 @@ html, body {
     animation: logo-spin infinite 20s linear;
   }
 }
+
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-decoration: none;
+}
+.link img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+.link img.pencil {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+.link span {
+  color: #fff;
+  text-decoration: none;
+  font-family: BoutiqueBitmap;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: BoutiqueBitmap;
+}
+
+input, textarea {
+  border: solid 4px;
+  padding: 12px;
+  font-family: BoutiqueBitmap;
+  font-size: 16px;
+}

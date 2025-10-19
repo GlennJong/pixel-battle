@@ -16,7 +16,7 @@ const aboutDialogue = [{
 
 const winDialogue = [{
   portrait: 'battle_afk_self_face_normal',
-  text: '恭喜你過關了！\n雖然我沒有準備獎勵給你...'
+  text: '恭喜你過關了！\n然而還有其他人等著要挑戰...'
 }]
 
 const continueDialogue = [{
@@ -38,23 +38,23 @@ function getActionList() {
 }
 
 const basicBattleList = [
-{ text: '安迪', value: 'jennie' },
-{ text: '貝貝', value: 'beibei' },
-{ text: '上上', value: 'shangshang' },
-{ text: '貓辣妹', value: 'maoramei' },
-{ text: '咖哩貓', value: 'currycat' }
+  { text: '安迪', value: 'jennie' },
+  { text: '貝貝', value: 'beibei' },
+  { text: '上上', value: 'shangshang' },
+  { text: '貓辣妹', value: 'maoramei' },
+  { text: '咖哩貓', value: 'currycat' }
 ];
 const secretBattleList = [
-{ text: 'ㄐㄎ', value: 'ai4vupwjp' },
-{ text: '小咖', value: 'ka' },
-{ text: '搭拉', value: 'dara' },
-{ text: '還要更快', value: 'fast' },
-{ text: '是小蝶', value: 'hudeijun' },
-{ text: '問問', value: 'p13p04' },
-{ text: '爬慶狗', value: 'pachin' },
-{ text: '龐琪', value: 'pumpkin' },
-{ text: 'BBB', value: 'bbb' },
-{ text: '橙踏青', value: 'touching' },
+  { text: 'ㄐㄎ', value: 'ai4vupwjp' },
+  { text: '小咖', value: 'ka' },
+  { text: '搭拉', value: 'dara' },
+  { text: '還要更快', value: 'fast' },
+  { text: '是小蝶', value: 'hudeijun' },
+  { text: '問問', value: 'p13p04' },
+  { text: '爬慶狗', value: 'pachin' },
+  { text: '龐琪', value: 'pumpkin' },
+  { text: 'BBB', value: 'bbb' },
+  { text: '橙踏青', value: 'touching' },
 ];
 function getBattleList() {
   return isSecretMode ?
@@ -64,6 +64,10 @@ function getBattleList() {
     ]
     :
     basicBattleList.map(({ text }) => text);
+  // return [
+  //     ...basicBattleList.map(({ text }) => text),
+  //     ...secretBattleList.map(({ text }) => text)
+  //   ];
 }
 
 let isAllowRecover = true;
@@ -305,8 +309,8 @@ export default class Battle extends Scene {
           isAllowRecover = true;
           await this.continueGame();
         }
-        else if (basicBattleList.map(({ text }) => text).includes(menuAction)) {
-          const result = basicBattleList.find(({ text }) => text === menuAction);
+        else if ([...basicBattleList, ...secretBattleList].map(({ text }) => text).includes(menuAction)) {
+          const result = [...basicBattleList, ...secretBattleList].find(({ text }) => text === menuAction);
           if (result) {
             this.restartBattle(result.value);
           }
