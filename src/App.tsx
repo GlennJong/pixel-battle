@@ -19,7 +19,13 @@ async function postData(data: { name: string; content: string }) {
 function App() {
   const [inputs, setInputs] = useState<string[]>([]);
   const [isInfoDisplay, setIsInfoDisplay] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setIsInfoDisplay(true);
+    window.addEventListener('game-finish', handler);
+    return () => window.removeEventListener('game-finish', handler);
+  }, []);
 
   useEffect(() => {
     if (inputs.length < 9) return;

@@ -10,8 +10,8 @@ import { EventBus } from '@/game/EventBus';
 import { introduction } from './introduction';
 
 const aboutDialogue = [{
-  portrait: 'battle_afk_self_face_normal',
-  text: '這是咖哩貓做的貞貞俱樂部二創小遊戲。\n滿足小小的想做遊戲的願望！\n希望你有喜歡！',
+  portrait: 'battle_afk_self_currycat_face_normal',
+  text: '這是咖哩貓做的貞貞俱樂部二創小遊戲。\n雖然是仿造部分寶〇夢回合制的遊戲架構和畫幾幅貞貞俱樂部角色的像素圖，\n已經滿足我想做遊戲的小小願望！\n希望你有喜歡！',
 }];
 
 const winDialogue = [{
@@ -303,7 +303,8 @@ export default class Battle extends Scene {
         }
         else if (menuAction === '離開') {
           await this.dialogue!.runDialogue(finishingDialogue);
-          sceneFinisher(this);
+          await sceneFinisher(this);
+          window.dispatchEvent(new CustomEvent('game-finish'));
         }
         else if (menuAction === '換人挑戰') {
           isAllowRecover = true;
