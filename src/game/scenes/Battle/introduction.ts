@@ -20,7 +20,7 @@ export const introduction: { [key: string]: { portrait: string, text: string }[]
   jennie: [
     {
       portrait: 'battle_afk_self_face_normal',
-      text: '安迪就是實況主貞尼鹹粥！畫風很精緻又復古！\n平常會開台陪大家線上工作聊聊天，也會玩恐怖遊戲給大家看！\n還很喜歡吃拉麵！快去追蹤他！',
+      text: '安迪是實況主貞尼鹹粥！\n畫風精緻又復古！\n平常會開台陪大家線上工作聊聊天，也會玩恐怖遊戲給大家看！\n還是個拉麵控！快去追蹤他！',
     }
   ],
   currycat: [

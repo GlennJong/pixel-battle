@@ -9,10 +9,20 @@ import { KeyboardHandler } from '@/game/handlers/KeyboardHander';
 import { EventBus } from '@/game/EventBus';
 import { introduction } from './introduction';
 
-const aboutDialogue = [{
-  portrait: 'battle_afk_self_currycat_face_normal',
-  text: '這是咖哩貓做的貞貞俱樂部二創小遊戲。\n雖然是仿造部分寶〇夢回合制的遊戲架構和畫幾幅貞貞俱樂部角色的像素圖，\n已經滿足我想做遊戲的小小願望！\n希望你有喜歡！',
-}];
+const aboutDialogue = [
+  {
+    portrait: 'battle_afk_self_currycat_face_normal',
+    text: '這是咖哩貓做的貞貞俱樂部二創小遊戲。\n是仿造部分寶〇夢回合制遊戲架構和展示貞貞俱樂部角色像素圖',
+  },
+  {
+    portrait: 'battle_afk_self_currycat_face_sad',
+    text: '以後有機會一定再來做看看完整的遊戲！',
+  },
+  {
+    portrait: 'battle_afk_self_currycat_face_normal',
+    text: '希望這個小遊戲有帶給你一些樂趣！希望你有喜歡！',
+  }
+];
 
 const winDialogue = [{
   portrait: 'battle_afk_self_face_normal',
@@ -26,7 +36,7 @@ const continueDialogue = [{
 
 const finishingDialogue = [{
   portrait: 'battle_afk_self_face_normal',
-  text: '喜歡這個小遊戲嗎？\n歡迎給我回饋！\n歡迎追蹤貞尼鹹粥！加入貞貞俱樂部！\n88888！'
+  text: '感謝你遊玩！歡迎留下回饋意見！\n歡迎追蹤貞尼鹹粥！加入貞貞俱樂部！\n88888！'
 }];
 
 const continueList = ['換人挑戰', '關於遊戲', '離開'];
@@ -44,6 +54,7 @@ const basicBattleList = [
   { text: '貓辣妹', value: 'maoramei' },
   { text: '咖哩貓', value: 'currycat' }
 ];
+
 const secretBattleList = [
   { text: 'ㄐㄎ', value: 'ai4vupwjp' },
   { text: '小咖', value: 'ka' },
@@ -56,6 +67,7 @@ const secretBattleList = [
   { text: 'BBB', value: 'bbb' },
   { text: '橙踏青', value: 'touching' },
 ];
+
 function getBattleList() {
   return isSecretMode ?
     [

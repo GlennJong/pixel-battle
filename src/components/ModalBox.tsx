@@ -9,6 +9,7 @@ interface ModalBoxProps {
 
 export const ModalBox: React.FC<ModalBoxProps> = ({ isOpen, onClose, onSubmit }) => {
   const [isSending, setIsSending] = useState(false);
+  const [isSendFinish, setIsSendFinish] = useState(false);
   const [name, setName] = useState('');
   const [content, setContent] = useState('');
 
@@ -28,7 +29,10 @@ export const ModalBox: React.FC<ModalBoxProps> = ({ isOpen, onClose, onSubmit })
         justifyContent: 'center',
         zIndex: 1000
       }}
-      onClick={onClose}
+      onClick={() => {
+        if (isSending) return;
+        onClose();
+      }}
     >
       <div
         style={{
@@ -43,53 +47,75 @@ export const ModalBox: React.FC<ModalBoxProps> = ({ isOpen, onClose, onSubmit })
       >
         <h2 style={{
           color: '#000'
-        }}>回饋</h2>
-        <div style={{ marginBottom: '1rem' }}>
-          <label>
-            <input
-              type="text"
-              value={name}
-              onChange={e => setName(e.target.value)}
-              style={{
-                width: '100%',
-              }}
-              placeholder="請輸入您的名字"
-            />
-          </label>
-        </div>
-        <div style={{ marginBottom: '1rem' }}>
-          <label>
-            <textarea
-              value={content}
-              onChange={e => setContent(e.target.value)}
-              style={{ width: '100%', minHeight: '80px' }}
-              placeholder="請輸入您的意見"
-            />
-          </label>
-        </div>
-        <div style={{ display: 'flex', gap: '12px' }}>
-          <button
-            style={{
-              border: 'none',
-              background: '#6441a5',
-              color: '#fff',
-              padding: '12px',
-              width: '100%',
-              fontFamily: 'BoutiqueBitmap'
-            }}
-            onClick={async () => {
-              setIsSending(true);
-              await onSubmit(name, content);
-              setName('');
-              setContent('');
-              setIsSending(false);
-              onClose();
-            }}
-            disabled={!name || !content || isSending}
-          >{
-            isSending ? '送出中...' : '送出'
-          }</button>
-        </div>
+        }}>
+          { isSendFinish ? '咖哩貓已收到你的回饋!' : '回饋給咖哩貓' }
+        </h2>
+        { !isSendFinish ?
+          <>
+            <div style={{ marginBottom: '1rem' }}>
+              <label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                  style={{
+                    width: '100%',
+                  }}
+                  placeholder="如何稱呼你呢？"
+                />
+              </label>
+            </div>
+            <div style={{ marginBottom: '1rem' }}>
+              <label>
+                <textarea
+                  value={content}
+                  onChange={e => setContent(e.target.value)}
+                  style={{ width: '100%', minHeight: '80px' }}
+                  placeholder="你想分享什麼呢？"
+                />
+              </label>
+            </div>
+            <div style={{ display: 'flex', gap: '12px' }}>
+              <button
+                style={{
+                  border: 'none',
+                  background: '#6441a5',
+                  color: '#fff',
+                  padding: '12px',
+                  width: '100%',
+                  fontFamily: 'BoutiqueBitmap'
+                }}
+                onClick={async () => {
+                  setIsSending(true);
+                  await onSubmit(name, content);
+                  setName('');
+                  setContent('');
+                  setIsSending(false);
+                  setIsSendFinish(true);
+                }}
+                disabled={!name || !content || isSending}
+              >{
+                isSending ? '送出中...' : '送出'
+              }</button>
+            </div>
+          </>
+          :
+          <>
+            <div style={{ display: 'flex', gap: '12px' }}>
+              <button
+                style={{
+                  border: 'none',
+                  background: '#6441a5',
+                  color: '#fff',
+                  padding: '12px',
+                  width: '100%',
+                  fontFamily: 'BoutiqueBitmap'
+                }}
+                onClick={onClose}
+              >關閉</button>
+            </div>
+          </>
+        }
       </div>
     </div>
   );
