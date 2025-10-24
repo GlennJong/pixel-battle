@@ -636,7 +636,7 @@
         "effect": {
           "type": "recover",
           "target": "opponent",
-          "value": 50
+          "value": 33
         }
       }
     },
@@ -2352,7 +2352,7 @@
         "effect": {
           "type": "damage",
           "target": "opponent",
-          "value": 24
+          "value": 32
         }
       },
       "attack2": {
