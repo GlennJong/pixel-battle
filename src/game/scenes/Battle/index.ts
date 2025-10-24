@@ -12,7 +12,7 @@ import { introduction } from './introduction';
 const aboutDialogue = [
   {
     portrait: 'battle_afk_self_currycat_face_normal',
-    text: '這是咖哩貓做的貞貞俱樂部二創小遊戲。\n是仿造部分寶〇夢回合制遊戲架構和展示貞貞俱樂部角色像素圖',
+    text: '這是咖哩貓做的貞貞俱樂部二創小遊戲。\n目前只是仿造部分寶〇夢回合制遊戲架構XDD',
   },
   {
     portrait: 'battle_afk_self_currycat_face_sad',
@@ -20,7 +20,7 @@ const aboutDialogue = [
   },
   {
     portrait: 'battle_afk_self_currycat_face_normal',
-    text: '希望這個小遊戲有帶給你一些樂趣！希望你有喜歡！',
+    text: '希望這個小遊戲有帶給你一些樂趣！',
   }
 ];
 
