@@ -3,7 +3,7 @@ import Phaser from "phaser";
 import { runTween } from "../utils/runTween";
 
 const maskCoverColor = 0x000000;
-const DURATION = 1000;
+const SPEED = 0.3; // pixels per millisecond
 
 export async function sceneConverter(
   scene: Phaser.Scene,
@@ -13,7 +13,6 @@ export async function sceneConverter(
   const { scene: sceneController } = scene;
   const cover = new CircleScreenTransition(scene);
 
-  cover.max();
   await cover.runMask();
 
   // move to next scene
@@ -25,15 +24,12 @@ export async function sceneConverter(
 export async function sceneStarter(scene: Phaser.Scene) {
   const cover = new CircleScreenTransition(scene);
 
-  cover.init();
   await cover.runUnmask();
 }
 
 export async function sceneFinisher(scene: Phaser.Scene) {
   const cover = new CircleScreenTransition(scene);
-  cover.init();
   
-  cover.max();
   await cover.runMask();
 }
 
@@ -68,25 +64,26 @@ class CircleScreenTransition extends Phaser.GameObjects.Container {
     this.setDepth(9999);
   }
 
-  public init() {
-    this.visibleArea.setRadius(0);
-  }
-
-  public max() {
-    this.visibleArea.setRadius(this.curcleMaxSize);
-  }
-
-  public async run() {
-    await runTween(this.visibleArea, { radius: 0 }, DURATION);
-    return;
-  }
-
   public async runMask() {
-    await runTween(this.visibleArea, { radius: 0 }, DURATION);
+    this.visibleArea.setRadius(this.curcleMaxSize);
+    const duration = this.visibleArea.radius / SPEED;
+    await runTween(
+      this.visibleArea,
+      { radius: 0 },
+      duration,
+      Phaser.Math.Easing.Quadratic.In,
+    );
     return;
   }
   public async runUnmask() {
-    await runTween(this.visibleArea, { radius: 220 }, DURATION);
+    this.visibleArea.setRadius(0);
+    const duration = (this.curcleMaxSize - this.visibleArea.radius) / SPEED;
+    await runTween(
+      this.visibleArea,
+      { radius: this.curcleMaxSize },
+      duration,
+      Phaser.Math.Easing.Quadratic.Out,
+    );
     return;
   }
 }

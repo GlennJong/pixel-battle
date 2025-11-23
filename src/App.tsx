@@ -86,46 +86,42 @@ function App() {
           }}
         >
           <div style={{
-            position: 'relative'
+            position: 'absolute',
+            width: '100%',
+            height: '0',
+            paddingBottom: '90%',
           }}>
-            <div style={{
-              position: 'absolute',
-              width: '100%',
-              height: '0',
-              paddingBottom: '90%',
-            }}>
-              <GameScene />
-              { isInfoDisplay &&
-                <div style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  position: 'absolute',
-                  gap: '24px',
-                  top: '0',
-                  left: '0',
-                  width: '100%',
-                  height: '100%',
-                  background: 'rgba(0, 0, 0, 0.8)'
-                }}>
-                  <a
-                    className="link"
-                    href="https://www.twitch.tv/jenniecongee"
-                    target="_blank"
-                  >
-                    <img src="./assets/twitch-tile.svg" alt="" />
-                    <span>jenniecongee</span>
-                  </a>
-                  <div className="link"
-                    onClick={() => setIsModalOpen(!isModalOpen)}
-                  >
-                    <img className="pencil" src="./assets/pen-solid-full.svg" alt="" />
-                    <span>feedback</span>
-                  </div>
+            <GameScene />
+            { isInfoDisplay &&
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                position: 'absolute',
+                gap: '24px',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                background: 'rgba(0, 0, 0, 0.8)'
+              }}>
+                <a
+                  className="link"
+                  href="https://www.twitch.tv/jenniecongee"
+                  target="_blank"
+                >
+                  <img src="./assets/twitch-tile.svg" alt="" />
+                  <span>jenniecongee</span>
+                </a>
+                <div className="link"
+                  onClick={() => setIsModalOpen(!isModalOpen)}
+                >
+                  <img className="pencil" src="./assets/pen-solid-full.svg" alt="" />
+                  <span>feedback</span>
                 </div>
-              }
-            </div>
+              </div>
+            }
           </div>
         </Console>
       </div>

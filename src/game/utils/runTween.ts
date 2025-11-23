@@ -31,6 +31,7 @@ export function runTween<T>(
         if ('scale' in obj && typeof obj['scale'] === 'number') obj['scale'] = (obj['scale'] * 100) / 100;
         if ('scaleX' in obj && typeof obj['scaleX'] === 'number') obj['scaleX'] = (obj['scaleX'] * 100) / 100;
         if ('scaleY' in obj && typeof obj['scaleY'] === 'number') obj['scaleY'] = (obj['scaleY'] * 100) / 100;
+        if ('radius' in obj && typeof obj['radius'] === 'number') obj['radius'] = Math.round(obj['radius'] * 10000) / 10000;
       },
     });
 

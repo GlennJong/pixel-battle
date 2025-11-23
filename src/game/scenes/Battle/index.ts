@@ -63,9 +63,10 @@ const secretBattleList = [
   { text: '是小蝶', value: 'hudeijun' },
   { text: '問問', value: 'p13p04' },
   { text: '爬慶狗', value: 'pachin' },
-  { text: '龐琪', value: 'pumpkin' },
+  { text: '龐淇', value: 'pumpkin' },
   { text: 'BBB', value: 'bbb' },
   { text: '橙踏青', value: 'touching' },
+  { text: '花吉', value: 'yuzhousmalloo' },
 ];
 
 function getBattleList() {

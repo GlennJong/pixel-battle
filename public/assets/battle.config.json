@@ -2315,6 +2315,175 @@
       }
     }
   },
+  "battle_yuzhousmalloo_opponent": {
+    "key": "battle_yuzhousmalloo_opponent",
+    "preload": {
+      "png": "battle/yuzhousmalloo.png",
+      "json": "battle/yuzhousmalloo.json"
+    },
+    "animations": [
+      { "prefix": "idle", "qty": 7, "freq": 6, "repeat": -1 },
+      { "prefix": "face_normal", "qty": 1, "freq": 1, "repeat": 0 },
+      { "prefix": "face_angry", "qty": 1, "freq": 1, "repeat": 0 },
+      { "prefix": "face_sad", "qty": 1, "freq": 1, "repeat": 0 }
+    ],
+    "base": {
+      "max_hp": 110,
+      "name": "花吉"
+    },
+    "actions": {
+      "attack": {
+        "animation": "attack",
+        "priority": 50,
+        "dialogues": [
+          {
+            "dialog": [
+              {
+                "portrait": "battle_yuzhousmalloo_opponent_face_angry",
+                "text": "花吉使出了衝撞攻擊！"
+              }
+            ],
+            "priority": 2
+          }
+        ],
+        "effect": {
+          "type": "damage",
+          "target": "self",
+          "value": 33
+        }
+      },
+      "attack2": {
+        "animation": "attack",
+        "priority": 40,
+        "dialogues": [
+          {
+            "dialog": [
+              {
+                "portrait": "battle_yuzhousmalloo_opponent_face_normal",
+                "text": "花吉使出了衝撞攻擊！"
+              },
+              {
+                "portrait": "battle_yuzhousmalloo_opponent_face_angry",
+                "text": "爆擊！"
+              }
+            ],
+            "priority": 2
+          }
+        ],
+        "effect": {
+          "type": "damage",
+          "target": "self",
+          "value": 48
+        }
+      },
+      "attack3": {
+        "animation": "recover",
+        "priority": 45,
+        "dialogues": [
+          {
+            "dialog": [
+              {
+                "portrait": "battle_yuzhousmalloo_opponent_face_normal",
+                "text": "花吉使出了懶惰攻擊！"
+              },
+              {
+                "portrait": "battle_yuzhousmalloo_opponent_face_sad",
+                "text": "wo...hen...lan...dou..."
+              }
+            ],
+            "priority": 2
+          }
+        ],
+        "effect": {
+          "type": "recover",
+          "target": "opponent",
+          "value": 20
+        }
+      }
+    },
+    "reactions": {
+      "damage": {
+        "animation": "damage",
+        "dialogues": [
+          {
+            "dialog": [
+              {
+                "portrait": "battle_yuzhousmalloo_opponent_face_sad",
+                "text": "花吉承受了傷害！"
+              }
+            ],
+            "priority": 2
+          }
+        ]
+      },
+      "recover": {
+        "animation": "recover",
+        "dialogues": [
+          {
+            "dialog": [
+              {
+                "portrait": "battle_yuzhousmalloo_opponent_face_angry",
+                "text": "花吉恢復了生命力！"
+              }
+            ],
+            "priority": 2
+          }
+        ]
+      }
+    },
+    "common": {
+      "start": [
+        {
+          "dialog": [
+            {
+              "portrait": "battle_yuzhousmalloo_opponent_face_normal",
+              "text": "花吉前來挑戰！"
+            }
+          ],
+          "priority": 2
+        }
+      ],
+      "finish": [
+        {
+          "dialog": [
+            {
+              "portrait": "battle_yuzhousmalloo_opponent_face_normal",
+              "text": "掰掰"
+            }
+          ],
+          "priority": 2
+        }
+      ]
+    },
+    "results": {
+      "win": {
+        "dialogues": [
+          {
+            "dialog": [
+              {
+                "portrait": "battle_yuzhousmalloo_opponent_face_angry",
+                "text": "花吉贏了！"
+              }
+            ],
+            "priority": 2
+          }
+        ]
+      },
+      "lose": {
+        "dialogues": [
+          {
+            "dialog": [
+              {
+                "portrait": "battle_yuzhousmalloo_opponent_face_sad",
+                "text": "花吉輸了..."
+              }
+            ],
+            "priority": 2
+          }
+        ]
+      }
+    }
+  },
   "battle_afk_self": {
     "key": "battle_afk_self",
     "preload": {
@@ -2357,7 +2526,7 @@
       },
       "attack2": {
         "animation": "attack",
-        "priority": 10,
+        "priority": 6,
         "dialogues": [
           {
             "dialog": [

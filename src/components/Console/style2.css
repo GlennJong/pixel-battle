@@ -104,7 +104,7 @@ button {
   /* flex-direction: column; */
   position: relative;
   padding: 0 24px;
-  padding-bottom: 80px;
+  padding-bottom: 9vh;
   background: #6441a5;
   z-index: 2;
   /* flex: 1; */

@@ -140,4 +140,14 @@ export const introduction: { [key: string]: { portrait: string, text: string }[]
       text: '最近也很會放閃撒糖給大家！',
     }
   ],
+  yuzhousmalloo: [
+    {
+      portrait: 'battle_afk_self_face_normal',
+      text: '花吉是朽吉的紫色學校分身！\n創作者是實況主兼插畫家懶惰朽吉！',
+    },
+    {
+      portrait: 'battle_afk_self_currycat_face_normal',
+      text: '朽吉創作的女孩子都超可愛！！\n顏色風格超療癒！實況講話風格好好笑XD\n有機會為她做一個小小遊戲應用真的好開心！\n咖哩貓私心唯一推！',
+    }
+  ]
 }
