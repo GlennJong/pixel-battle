@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment: github-pages
     permissions:
       contents: write
       pages: write
@@ -29,11 +30,12 @@ jobs:
       - name: Build
         run: |
           yarn build
-        
+      
+      - name: Create CNAME file
+        run: echo "${{ vars.CNAME }}" > dist/CNAME
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          cname: ${{ vars.CNAME }}
