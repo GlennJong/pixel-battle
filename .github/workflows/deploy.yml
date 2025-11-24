@@ -32,7 +32,7 @@ jobs:
           yarn build
       
       - name: Create CNAME file
-        run: echo "${{ vars.CNAME }}" > dist/CNAME
+        run: echo "${{ secrets.CNAME }}" > dist/CNAME
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
